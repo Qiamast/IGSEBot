@@ -2,17 +2,25 @@ import logging
 import sys
 import os
 import time
-
 import telebot
 from telebot import types
 
-API_TOKEN = os.environ['token']
+# Config
+Telegram_API_Token = os.environ['Telegram_API_Token']
+GOOGLE_API_KEY = os.environ['GOOGLE_API_KEY']
+SEARCH_ENGINE_ID = os.environ['SEARCH_ENGINE_ID']
 
-bot = telebot.TeleBot(API_TOKEN)
-telebot.logger.setLevel(logging.DEBUG)
+bot = telebot.TeleBot(Telegram_API_Token)
+
+logging.basicConfig(
+    level=logging.INFO,
+    format="[%(asctime)s] %(name)s | %(levelname)s | %(message)s",
+    datefmt="%Y-%m-%d %H:%M:%S"
+)
+logger = logging.getLogger()
 
 
-@bot.inline_handler(lambda query: query.query == 'text')
+@bot.inline_handler(lambda query: query.query != '')
 def query_text(inline_query):
     try:
         r = types.InlineQueryResultArticle('1', 'Result1', types.InputTextMessageContent('سلام این اولین نمونه سرچ در گوگل است'))
@@ -33,7 +41,9 @@ def default_query(inline_query):
 
 
 def main_loop():
+	logger.info("Bot polling started...")
     bot.infinity_polling()
+
     while 1:
         time.sleep(2)
 
