@@ -41,9 +41,7 @@ def default_query(inline_query):
 
 
 def main_loop():
-	logger.info("Bot polling started...")
     bot.infinity_polling()
-
     while 1:
         time.sleep(2)
 
