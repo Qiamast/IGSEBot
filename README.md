@@ -1,6 +1,6 @@
 # IGSEBot
 
-<img src="/assets/@IGSEBot githup repository cover.jpgg" alt="@IGSEBot Logo" width=250/>
+<img src="/assets/@IGSEBot githup repository cover.jpg" alt="@IGSEBot Logo" width=250/>
 
 Hello there! 👋🏻 I'm IGSEBot, an inline bot for Telegram written in Python that helps you to search on Google 
 for any type of query 🤯 on the web using Google search engine 🔍.
