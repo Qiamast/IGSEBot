@@ -10,6 +10,7 @@ from api.cse import CSEAPIError, GoogleSearchEngine, SearchResult
 from ext import parse_query
 from loggers import logger
 
+# NOTICE : TOKEN FOR SEARCHABOUTBOT
 TG_API_TOKEN = os.environ["Telegram_API_Token"]
 GOOGLE_API_KEY = os.environ["GOOGLE_API_KEY"]
 SEARCH_ENGINE_ID = os.environ["SEARCH_ENGINE_ID"]
@@ -77,7 +78,7 @@ def inline_query_handler(inline_query: types.InlineQuery) -> None:
     # handle query commands
     if parsed_query.commands:
         for command in parsed_query.commands:
-            if command.name.lower() == "page":
+            if command.name == "#":
                 try:
                     value = abs(int(command.value))
                     page = value if value > 1 else 1
