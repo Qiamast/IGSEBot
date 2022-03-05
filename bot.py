@@ -87,7 +87,7 @@ def inline_query_handler(inline_query: types.InlineQuery) -> None:
         search_result: SearchResult = cse.search(
             query=query_text,
             page=page,
-            only_image=False
+            only_image=True
         )
     except CSEAPIError as e:
         logger.error(f"Error while searching for {query_text!r}: {e}")
@@ -96,16 +96,12 @@ def inline_query_handler(inline_query: types.InlineQuery) -> None:
         # for every item in search result that has image attribute, add it to results
         if search_result.items:
             for item in search_result.items:
-                if item.image:
+                if item:
                     results.append(
-                        types.InlineQueryResultPhoto(
-                            id=str(uuid4()),
-                            photo_url=item.link,
-                            thumb_url=item.image.thumbnailLink,
-                            photo_width=item.image.width,
-                            photo_height=item.image.height,
-                            title=item.title
-                        )
+						types.InlineQueryResultArticle(
+							str(uuid4()),
+							item.title,
+							types.InputTextMessageContent(item.link))
                     )
         if search_result.spelling:
             results.append(
