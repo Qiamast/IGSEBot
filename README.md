@@ -1,25 +1,25 @@
-# ImarchBot
+# IGSEBot
 
-<img src="https://github.com/Qiamast/ImarchBot/blob/main/assets/ImarchBot-Logo-v3-transprant.png" alt="@ImarchBot Logo" width=250/>
+<img src="/assets/@IGSEBot-Logo1.0.2.jpg" alt="@IGSEBot Logo" width=250/>
 
-Hello there! 👋🏻 I'm ImarchBot, an inline bot for Telegram written in Python that helps you to search
-for any kind of images 🤯 on the web using Google search engine 🔍.
+Hello there! 👋🏻 I'm IGSEBot, an inline bot for Telegram written in Python that helps you to search on Google 
+for any type of query 🤯 on the web using Google search engine 🔍.
 
-My Telegram username is [@ImarchBot](https://t.me/ImarchBot)
+My Telegram username is [@IGSEBot](https://t.me/IGSEBot)
 
 ## How to use me?
 
-Please go ahead and start me by typing `/start` in [your Telegram](https://qiamast.github.io/ImarchBot/) chat,
-then you can use me to search for any image on the web by typing `@ImarchBot` in any chat followed by
-any image name.
-For instance, you can type `@ImarchBot` followed by `cat` to search for any image of a cat:
-`@ImarchBot cat` and you'll a list of images that you can click on to see the image.
+Please go ahead and start me by typing `/start` in [your Telegram](https://qiamast.github.io/IGSEBot/) chat,
+then you can use me to search for any image on the web by typing `@IGSEBot` in any chat followed by
+any title name.
+For instance, you can type `@IGSEBot` followed by `python` to search for any title about of a `python` at the Google and get link:
+`@IGSEBot python` and you'll a list of title that you can click on to get the title link .
 
-![How to use @ImarchBot ? ](https://github.com/Qiamast/ImarchBot/blob/main/assets/How%20To%20%40Imarchbot%20Work.gif)
+![How to use @IGSEBot ? ](https://github.com/Qiamast/ImarchBot/blob/main/assets/How%20To%20%40Imarchbot%20Work.gif)
 
 ## Deployment instructions 🚀
 
-Coming soon!
+Under development
 
 ## Contributing ®️
 
@@ -32,8 +32,3 @@ You can find a copy of this license [here](LICENSE).
 
 ## TODOs 👨🏻‍💻
 
-- [x] Implement custom search engine (CSE) API for image searching.
-- [x] Add pagination for image search results (currently only first 10 results are shown).
-- [x] Add suggestions for image search queries that are misspelled.
-- [x] Add search functionality in private chat with bot.
-- [ ] Add more commands to inline query (e.g. safe search, per page, ...).
