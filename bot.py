@@ -56,8 +56,9 @@ def help_message(message: types.Message) -> None:
         reply_markup=types.InlineKeyboardMarkup(kb)
     )
 
-
 # handle inline queries
+
+
 @bot.inline_handler(func=lambda query: len(query.query) > 0)
 def inline_query_handler(inline_query: types.InlineQuery) -> None:
     """Handle every inline query that is not empty."""
@@ -78,7 +79,7 @@ def inline_query_handler(inline_query: types.InlineQuery) -> None:
     # handle query commands
     if parsed_query.commands:
         for command in parsed_query.commands:
-            if command.name == "#":
+            if command.name == "page":
                 try:
                     value = abs(int(command.value))
                     page = value if value > 1 else 1
@@ -97,13 +98,21 @@ def inline_query_handler(inline_query: types.InlineQuery) -> None:
         # for every item in search result that has image attribute, add it to results
         if search_result.items:
             for item in search_result.items:
-                if item:
-                    results.append(
-						types.InlineQueryResultArticle(
-							str(uuid4()),
-							item.title,
-							types.InputTextMessageContent(item.link))
-                    )
+				thumbnail = None
+                if item.pagemap and item.pagemap.get("cse_image") :
+					thumbnail = item.pagemap["cse_iamge"][0]["src"]
+                results.append(
+					types.InlineQueryResultArticle(
+						id = str(uuid4()),
+						title = item.title,
+						input_message_content = types.InputTextMessageContent(item.link),
+						url =item.link,
+						hide_url = True,
+						description = item.snippet,
+						thumb_url = thumbnail
+						
+					)
+				)
         if search_result.spelling:
             results.append(
                 types.InlineQueryResultArticle(
