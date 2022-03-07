@@ -98,18 +98,21 @@ def inline_query_handler(inline_query: types.InlineQuery) -> None:
         # for every item in search result that has image attribute, add it to results
         if search_result.items:
             for item in search_result.items:
-		thumbnail = None
-                if item.pagemap and item.pagemap.get("cse_image") :
-			thumbnail = item.pagemap["cse_iamge"][0]["src"]
-                results.append(
-			types.InlineQueryResultArticle(
-				id = str(uuid4()),
-				title = item.title,
-				input_message_content = types.InputTextMessageContent(item.link),
-				url =item.link,
-				hide_url = True,
-				description = item.snippet,
-				thumb_url = thumbnail 
+					thumbnail = None
+                if item.pagemap and item.pagemap.get("cse_image")
+								thumbnail = item.pagemap["cse_iamge"][0]["src"]
+                results.app
+					
+			types.InlineQueryResultArti	cle(
+				id = str(uuid	4()),
+				title = item.	title,
+				input_message_content = types.InputTextMessageContent(item	.link),
+				url =it	em.link,
+				hide_ur	l = True,
+				description = ite	m.snippet,
+				thumb_url 
+					u
+				ail 
 			)
 		)
 		
