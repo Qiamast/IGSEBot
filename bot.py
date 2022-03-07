@@ -78,7 +78,7 @@ def inline_query_handler(inline_query: types.InlineQuery) -> None:
     # handle query commands
     if parsed_query.commands:
         for command in parsed_query.commands:
-            if command.name == "#":
+            if command.name == " ":
                 try:
                     value = abs(int(command.value))
                     page = value if value > 1 else 1
@@ -88,7 +88,7 @@ def inline_query_handler(inline_query: types.InlineQuery) -> None:
         search_result: SearchResult = cse.search(
             query=query_text,
             page=page,
-            only_image=True
+            only_image=False
         )
     except CSEAPIError as e:
         logger.error(f"Error while searching for {query_text!r}: {e}")
@@ -100,9 +100,15 @@ def inline_query_handler(inline_query: types.InlineQuery) -> None:
                 if item:
                     results.append(
 						types.InlineQueryResultArticle(
-							str(uuid4()),
-							item.title,
-							types.InputTextMessageContent(item.link))
+							id = str(uuid4()),
+							title = item.title,
+							input_message_content = types.InputTextMessageContent(item.link),
+							url = item.link,
+							hide_url = True,
+							description = item.snippet,
+							thumb_url = item.link
+							
+						)
                     )
         if search_result.spelling:
             results.append(
