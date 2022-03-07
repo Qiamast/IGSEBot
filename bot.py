@@ -106,7 +106,7 @@ def inline_query_handler(inline_query: types.InlineQuery) -> None:
 							url = item.link,
 							hide_url = True,
 							description = item.snippet,
-							thumb_url = item.link
+							thumb_url=None
 							
 						)
                     )
