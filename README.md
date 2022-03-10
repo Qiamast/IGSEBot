@@ -15,7 +15,6 @@ any title name.
 For instance, you can type `@IGSEBot` followed by `python` to search for any title about of a `python` at the Google and get link:
 `@IGSEBot python` and you'll a list of title that you can click on to get the title link .
 
-![How to use @IGSEBot ? ](https://github.com/Qiamast/ImarchBot/blob/main/assets/How%20To%20%40Imarchbot%20Work.gif)
 
 ## Deployment instructions 🚀
 
@@ -23,7 +22,7 @@ Under development
 
 ## Contributing ®️
 
-You can contribute to this project by opening an issue or creating a pull request.
+See the participation guide [here](contributing.md).
 
 ## License 📝
 
@@ -31,4 +30,9 @@ This project is licensed under the GNU General Public License v3.0.
 You can find a copy of this license [here](LICENSE).
 
 ## TODOs 👨🏻‍💻
+
+- [ ] add Search feature on robot chat page
+- [ ] add GIF about how to use bot
+- [ ] FIX search query at every complete title now a letter
+- [ ] Dynamic bot name at information
 
