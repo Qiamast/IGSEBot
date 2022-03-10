@@ -1,17 +1,17 @@
 START_MSG = (
     "Hey [{first_name}](tg://user?id={chat_id})!\n\n"
-    "I'm *IGSE* 🤖, inline Google search tool for telegram 🌐.\n\n"
+    "I'm *{bot_username}* 🤖, inline Google search tool for telegram 🌐.\n\n"
     "Send /help to get started and see the instructions 📖."
 )
 HELP_MSG = (
-    "📖 *IGSE Bot Usage*\n\n"
+    "📖 *{bot_username} Bot Usage*\n\n"
     "To search for any title, just type my username and the query you want to search 🔎\n"
     "\n*Examples* 🧪 \n\n"
-    "🔸 `@IGSEBot how to be hiro` - search results about of query\n"
-    "🔸 `@IGSEBot flower page:2` - search results about of query on page 2\n"
+    "🔸 `@{bot_username} how to be hiro` - search results about of query\n"
+    "🔸 `@{bot_username} flower :2` - search results about of query on page 2\n"
     "\n❗ Beside the query, you can add commands to change the search results behavior.\n\n"
     "*Supported commands*:\n\n"
-    "🔸 `page:<number>`: Change the page of the search results (default: 1)\n"
+    "🔸 `:<number>`: Change the page of the search results (default: 1)\n"
     "\n💡 *Note:*\n\n"
     "The search results are paginated. You can change the page "
     "of the search results by adding a command to the query.\n"

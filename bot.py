@@ -14,6 +14,7 @@ from loggers import logger
 TG_API_TOKEN = os.environ["Telegram_API_Token"]
 GOOGLE_API_KEY = os.environ["GOOGLE_API_KEY"]
 SEARCH_ENGINE_ID = os.environ["SEARCH_ENGINE_ID"]
+BOT_USERNAME = "IGSEBot"
 
 if not all((TG_API_TOKEN, GOOGLE_API_KEY, SEARCH_ENGINE_ID)):
     logger.error("Missing environment variables! Exiting...")
@@ -29,9 +30,10 @@ def start_message(message: types.Message) -> None:
     """Handle `/start` command."""
     first_name = message.from_user.first_name
     chat_id = message.from_user.id
+    
     bot.send_message(
         chat_id,
-        texts.START_MSG.format(first_name=first_name, chat_id=chat_id)
+        texts.START_MSG.format(first_name=first_name, chat_id=chat_id, bot_username=BOT_USERNAME)
     )
 
 
@@ -51,14 +53,14 @@ def help_message(message: types.Message) -> None:
     ]
     bot.send_message(
         chat_id,
-        texts.HELP_MSG,
+        texts.HELP_MSG.format(bot_username=BOT_USERNAME),
         reply_to_message_id=message_id,
         reply_markup=types.InlineKeyboardMarkup(kb)
     )
 
 
 # handle inline queries
-@bot.inline_handler(func=lambda query: len(query.query) > 0)
+@bot.inline_handler(func=lambda query: len(query.query) > 6)
 def inline_query_handler(inline_query: types.InlineQuery) -> None:
     """Handle every inline query that is not empty."""
     parsed_query = parse_query(inline_query.query)
@@ -71,14 +73,14 @@ def inline_query_handler(inline_query: types.InlineQuery) -> None:
         title="⚠️ No results found",
         description=texts.NOT_FOUND_MSG,
         input_message_content=types.InputTextMessageContent(
-            message_text="not_found_result"
+            message_text="https://t.me/DatabaseOfBot"
         )
     )
     page = 1
     # handle query commands
     if parsed_query.commands:
         for command in parsed_query.commands:
-            if command.name == "page":
+            if command.name == "":
                 try:
                     value = abs(int(command.value))
                     page = value if value > 1 else 1

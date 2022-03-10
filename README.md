@@ -1,6 +1,6 @@
 # IGSEBot
 
-<img src="/assets/@IGSEBot githup repository cover.jpg" alt="@IGSEBot Logo" width=250/>
+<img src="/assets/@IGSEBot githup repository cover.jpg" alt="@IGSEBot Logo" width=500/>
 
 Hello there! 👋🏻 I'm IGSEBot, an inline bot for Telegram written in Python that helps you to search on Google 
 for any type of query 🤯 on the web using Google search engine 🔍.
@@ -13,7 +13,7 @@ Please go ahead and start me by typing `/start` in [your Telegram](https://qiama
 then you can use me to search for any image on the web by typing `@IGSEBot` in any chat followed by
 any title name.
 For instance, you can type `@IGSEBot` followed by `python` to search for any title about of a `python` at the Google and get link:
-`@IGSEBot python` and you'll a list of title that you can click on to get the title link .
+`@IGSEBot` and you'll a list of title that you can click on to get the title link .
 
 
 ## Deployment instructions 🚀
@@ -31,6 +31,7 @@ You can find a copy of this license [here](LICENSE).
 
 ## TODOs 👨🏻‍💻
 
+- [x] make search query pagination easy like ":2" => this means page 2
 - [ ] add Search feature on robot chat page
 - [ ] add GIF about how to use bot
 - [ ] FIX search query at every complete title now a letter
