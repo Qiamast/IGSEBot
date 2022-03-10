@@ -78,7 +78,7 @@ def inline_query_handler(inline_query: types.InlineQuery) -> None:
     # handle query commands
     if parsed_query.commands:
         for command in parsed_query.commands:
-            if command.name == " ":
+            if command.name == "page":
                 try:
                     value = abs(int(command.value))
                     page = value if value > 1 else 1
@@ -99,12 +99,12 @@ def inline_query_handler(inline_query: types.InlineQuery) -> None:
             for item in search_result.items:
                 Thumbnail = None
                 if item.pagemap and item.pagemap.get("cse_image"):
-                    Thumbnail = item.pagemap["cse_image"][0]["src"]
+                    Thumbnail = item.pagemap["cse_image"][0]["src"]                
                     results.append(
 						types.InlineQueryResultArticle(
 							id = str(uuid4()),
 							title = item.title,
-							input_message_content = types.InputTextMessageContent(item.link),
+							input_message_content = types.InputTextMessageContent(texts.OUTPOT_MSG.format(title=item.title, url=item.link), parse_mode="Markdown"),
 							url = item.link,
 							hide_url = True,
 							description = item.snippet,

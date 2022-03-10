@@ -32,7 +32,7 @@ def parse_query(text: str) -> ParsedQuery:
     Returns:
         - `ParsedQuery`: A parsed query object.
     """
-    cmd_pattern = r"([0-9a-zA-Z_]+)#([^\s]*)"
+    cmd_pattern = r"([0-9a-zA-Z_]+):([^\s]*)"
     commands = re.findall(cmd_pattern, text)
     if commands:
         commands = [

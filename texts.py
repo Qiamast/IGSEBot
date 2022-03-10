@@ -27,3 +27,7 @@ PRIVATE_SEARCH_MSG = (
     "Press the button below to search for *{query!r}* "
     "in this chat 👇🏻"
 )
+
+OUTPOT_MSG = (
+    "[{title}]({url})🔍"
+)
